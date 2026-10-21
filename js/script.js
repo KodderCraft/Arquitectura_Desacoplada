@@ -8,10 +8,9 @@ const quizAnswers = [
   { correct: "b", explanation: "Si conserva el contrato acordado, un módulo puede sustituirse sin exigir cambios generalizados." }
 ];
 
-// Leave both values empty to keep the video area offline and unconfigured.
 const videoConfig = {
   youtubeId: "",
-  localVideoPath: ""
+  localVideoPath: "assets/video/video editado.mp4"
 };
 
 const menuToggle = document.querySelector(".menu-toggle");
