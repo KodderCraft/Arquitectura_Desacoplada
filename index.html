@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b35">
+  <meta name="description" content="Una guía visual e interactiva para comprender la arquitectura desacoplada, sus ventajas y sus desafíos.">
+  <title>Arquitectura Desacoplada | Sistemas preparados para evolucionar</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Arquitectura Desacoplada, inicio">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Arquitectura <strong>Desacoplada</strong></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#concepto">Concepto</a></li>
+        <li><a href="#arquitectura">Arquitectura</a></li>
+        <li><a href="#cuestionario">Cuestionario</a></li>
+        <li><a href="#video">Video</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> PRINCIPIOS DE DISEÑO DE SOFTWARE</p>
+        <h1 id="hero-title">Arquitectura<br><span>Desacoplada</span></h1>
+        <p class="hero-subtitle">Sistemas independientes, flexibles y preparados para evolucionar.</p>
+        <p class="hero-intro">Diseña componentes que colaboran sin quedar atados a los detalles internos de los demás. Menos fricción para cambiar; más espacio para crecer.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#arquitectura">Explorar arquitectura <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="#cuestionario">Poner a prueba mis conocimientos</a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span> Una guía interactiva para pensar en sistemas con límites claros.</div>
+      </div>
+      <div class="hero-visual" aria-label="Ilustración de módulos de software conectados mediante contratos">
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+        <svg class="hero-illustration" viewBox="0 0 520 420" role="img" aria-labelledby="hero-svg-title hero-svg-desc">
+          <title id="hero-svg-title">Componentes conectados mediante contratos</title>
+          <desc id="hero-svg-desc">Una interfaz se comunica con un contrato que distribuye el trabajo a tres módulos independientes.</desc>
+          <path class="hero-wire wire-a" d="M258 96V154M258 154H134V220M258 154V220M258 154H386V220M134 294V338H258M258 294V338M386 294V338H258V365" />
+          <circle class="wire-node" cx="258" cy="154" r="6" />
+          <rect class="hero-chip chip-ui" x="183" y="40" width="150" height="58" rx="14" />
+          <rect class="hero-chip chip-contract" x="201" y="132" width="114" height="44" rx="12" />
+          <rect class="hero-chip chip-module" x="73" y="220" width="122" height="74" rx="14" />
+          <rect class="hero-chip chip-module chip-violet" x="197" y="220" width="122" height="74" rx="14" />
+          <rect class="hero-chip chip-module chip-green" x="321" y="220" width="122" height="74" rx="14" />
+          <rect class="hero-chip chip-data" x="183" y="338" width="150" height="50" rx="13" />
+          <g class="chip-icon" transform="translate(204 57)"><rect x="0" y="0" width="25" height="23" rx="4"/><path d="M6 8h13M6 13h13M6 18h8"/></g>
+          <text class="hero-label" x="244" y="75">Interfaz de usuario</text>
+          <text class="hero-small" x="258" y="159" text-anchor="middle">CONTRATO</text>
+          <text class="hero-label" x="134" y="257" text-anchor="middle">Usuarios</text>
+          <text class="hero-caption" x="134" y="276" text-anchor="middle">identidad</text>
+          <text class="hero-label" x="258" y="257" text-anchor="middle">Pedidos</text>
+          <text class="hero-caption" x="258" y="276" text-anchor="middle">operaciones</text>
+          <text class="hero-label" x="382" y="257" text-anchor="middle">Pagos</text>
+          <text class="hero-caption" x="382" y="276" text-anchor="middle">transacciones</text>
+          <text class="hero-label" x="258" y="369" text-anchor="middle">Persistencia</text>
+          <circle class="float-dot dot-one" cx="75" cy="125" r="4"/><circle class="float-dot dot-two" cx="430" cy="120" r="5"/><circle class="float-dot dot-three" cx="83" cy="350" r="3"/>
+        </svg>
+        <div class="visual-caption"><span class="caption-pulse"></span> COMPONENTES · CONTRATOS · COLABORACIÓN</div>
+      </div>
+      <a class="scroll-cue" href="#concepto"><span></span> Desplázate para explorar</a>
+    </section>
+
+    <section class="section concept-section" id="concepto" aria-labelledby="concept-title">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow eyebrow-dark">01 / EL CONCEPTO</p>
+        <h2 id="concept-title">La libertad de cambiar<br><span>sin romper lo demás.</span></h2>
+        <p class="section-lede">Una arquitectura desacoplada reduce las dependencias directas entre componentes para que puedan modificarse, probarse y mantenerse con menor impacto en el resto del sistema.</p>
+      </div>
+      <div class="definition-strip" data-reveal>
+        <div class="definition-icon" aria-hidden="true">↔</div>
+        <p>Los componentes colaboran a través de <strong>interfaces, contratos o mecanismos de comunicación definidos</strong>, no mediante el conocimiento de sus detalles internos.</p>
+        <span class="definition-index">01 — IDEA CENTRAL</span>
+      </div>
+
+      <div class="content-grid">
+        <article class="info-panel characteristics" data-reveal>
+          <div class="panel-heading"><span class="panel-number">A</span><h3>Características</h3></div>
+          <ul class="feature-list">
+            <li><span class="list-icon icon-blue" aria-hidden="true">⌘</span><span><strong>Bajo acoplamiento</strong><small>Menos dependencias directas entre piezas.</small></span></li>
+            <li><span class="list-icon icon-violet" aria-hidden="true">◎</span><span><strong>Alta cohesión</strong><small>Responsabilidades bien delimitadas.</small></span></li>
+            <li><span class="list-icon icon-cyan" aria-hidden="true">⇄</span><span><strong>Contratos claros</strong><small>Acuerdos explícitos para colaborar.</small></span></li>
+            <li><span class="list-icon icon-green" aria-hidden="true">✓</span><span><strong>Pruebas independientes</strong><small>Validación aislada de los componentes.</small></span></li>
+            <li><span class="list-icon icon-orange" aria-hidden="true">↗</span><span><strong>Flexibilidad</strong><small>Posibilidad de extender o sustituir piezas.</small></span></li>
+          </ul>
+        </article>
+        <article class="info-panel benefits" data-reveal>
+          <div class="panel-heading"><span class="panel-number">B</span><h3>Ventajas</h3></div>
+          <ul class="feature-list">
+            <li><span class="list-icon icon-green" aria-hidden="true">✳</span><span><strong>Mantenimiento más simple</strong><small>Los cambios quedan más localizados.</small></span></li>
+            <li><span class="list-icon icon-blue" aria-hidden="true">⇆</span><span><strong>Sustitución con menor impacto</strong><small>Si el componente respeta su contrato.</small></span></li>
+            <li><span class="list-icon icon-violet" aria-hidden="true">⌕</span><span><strong>Pruebas más enfocadas</strong><small>Cada pieza puede verificarse por separado.</small></span></li>
+            <li><span class="list-icon icon-cyan" aria-hidden="true">▤</span><span><strong>Mejor organización</strong><small>Estructura alineada con cada responsabilidad.</small></span></li>
+            <li><span class="list-icon icon-orange" aria-hidden="true">◷</span><span><strong>Evolución tecnológica</strong><small>Adopción gradual de nuevas soluciones.</small></span></li>
+          </ul>
+        </article>
+        <article class="challenge-panel" data-reveal>
+          <div class="challenge-top"><span aria-hidden="true">◈</span><p>LO QUE TAMBIÉN HAY QUE DISEÑAR</p></div>
+          <h3>El desacoplamiento<br>no es gratis.</h3>
+          <p>Los límites correctos exigen intención. Una separación excesiva también puede complicar un sistema.</p>
+          <ul>
+            <li>Más complejidad al inicio del diseño</li>
+            <li>Interfaces que requieren definición y cuidado</li>
+            <li>Comunicación y documentación adicionales</li>
+            <li>Planificación para evitar abstracciones innecesarias</li>
+          </ul>
+        </article>
+      </div>
+      <p class="section-footnote" data-reveal><span aria-hidden="true">✳</span> Desacoplar no significa eliminar la comunicación; significa hacerla explícita y gestionar sus dependencias.</p>
+    </section>
+
+    <section class="section architecture-section" id="arquitectura" aria-labelledby="architecture-title">
+      <div class="section-heading architecture-heading" data-reveal>
+        <p class="eyebrow eyebrow-dark">02 / UNA VISTA DEL SISTEMA</p>
+        <h2 id="architecture-title">¿Cómo funciona una<br><span>arquitectura desacoplada?</span></h2>
+        <p class="section-lede">Un ejemplo conceptual: cada módulo se ocupa de una responsabilidad y colabora a través de límites explícitos. Selecciona un componente para conocer su papel.</p>
+      </div>
+      <div class="diagram-layout" data-reveal>
+        <div class="diagram-frame">
+          <div class="diagram-topline"><span>MAPA DE COMPONENTES</span><span class="diagram-status"><i></i> VISTA CONCEPTUAL</span></div>
+          <svg class="architecture-diagram" viewBox="0 0 850 510" role="img" aria-labelledby="diagram-title diagram-desc">
+            <title id="diagram-title">Ejemplo conceptual de arquitectura desacoplada</title>
+            <desc id="diagram-desc">La interfaz de usuario se comunica con una capa de aplicación. Esta coordina módulos de usuarios, pedidos y pagos mediante contratos. Los módulos pueden interactuar con almacenamiento.</desc>
+            <defs>
+              <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#3978ee"/></marker>
+              <marker id="arrow-violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#8b69d5"/></marker>
+              <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#258e83"/></marker>
+            </defs>
+            <path class="diagram-wire wire-blue" d="M425 100V145" marker-end="url(#arrow-blue)"/>
+            <path class="diagram-wire wire-violet" d="M425 211V258H160V306M425 258V306M425 258H690V306" marker-end="url(#arrow-violet)"/>
+            <path class="diagram-wire wire-teal" d="M160 385V437H425M425 385V437M690 385V437H425V463" marker-end="url(#arrow-teal)"/>
+            <path class="diagram-wire wire-muted" d="M160 385V413H690V385"/>
+            <text class="wire-label" x="445" y="127">solicitud</text>
+            <text class="wire-label" x="285" y="248">contratos definidos</text>
+            <text class="wire-label" x="445" y="452">datos</text>
+
+            <g class="diagram-node node-ui" tabindex="0" role="button" aria-label="Interfaz de usuario: punto de interacción" data-title="Interfaz de usuario" data-description="Presenta información y recoge las acciones de las personas. En este ejemplo, solicita operaciones a la capa de aplicación sin conocer la lógica interna de cada módulo.">
+              <rect class="node-box" x="305" y="36" width="240" height="64" rx="12"/>
+              <rect class="node-symbol" x="323" y="54" width="28" height="26" rx="5"/><path class="symbol-line" d="M329 62h16M329 68h16M329 74h9"/>
+              <text class="node-title" x="365" y="65">Interfaz de usuario</text><text class="node-subtitle" x="365" y="82">punto de interacción</text>
+            </g>
+            <g class="diagram-node node-app" tabindex="0" role="button" aria-label="Capa de aplicación o API: coordina operaciones" data-title="Capa de aplicación o API" data-description="Puede recibir solicitudes y coordinar operaciones entre módulos. Es una opción de diseño del ejemplo, no un requisito universal para toda arquitectura desacoplada.">
+              <rect class="node-box" x="305" y="145" width="240" height="66" rx="12"/>
+              <circle class="node-symbol" cx="340" cy="178" r="14"/><path class="symbol-line" d="M334 178h12M340 172v12"/>
+              <text class="node-title" x="365" y="174">Aplicación / API</text><text class="node-subtitle" x="365" y="192">coordina operaciones</text>
+            </g>
+            <g class="contract-tag" aria-label="Contratos e interfaces definidos"><rect x="326" y="237" width="198" height="34" rx="17"/><text x="425" y="258" text-anchor="middle">INTERFACES / CONTRATOS</text></g>
+            <g class="diagram-node node-users" tabindex="0" role="button" aria-label="Módulo de usuarios: gestiona identidades" data-title="Módulo de usuarios" data-description="Agrupa las responsabilidades de identidad y perfiles. Otros componentes dependen del contrato expuesto, no de cómo se almacena o implementa internamente.">
+              <rect class="node-box" x="55" y="306" width="210" height="79" rx="12"/><circle class="module-badge" cx="83" cy="334" r="14"/><text class="badge-letter" x="83" y="339" text-anchor="middle">U</text>
+              <text class="node-title" x="108" y="333">Usuarios</text><text class="node-subtitle" x="108" y="352">identidad y perfiles</text><text class="node-detail" x="75" y="372">módulo independiente</text>
+            </g>
+            <g class="diagram-node node-orders" tabindex="0" role="button" aria-label="Módulo de pedidos: gestiona operaciones" data-title="Módulo de pedidos" data-description="Gestiona el ciclo de vida de los pedidos. Puede colaborar con los módulos vecinos mediante acuerdos claros, manteniendo su propia responsabilidad.">
+              <rect class="node-box" x="320" y="306" width="210" height="79" rx="12"/><circle class="module-badge" cx="348" cy="334" r="14"/><text class="badge-letter" x="348" y="339" text-anchor="middle">P</text>
+              <text class="node-title" x="373" y="333">Pedidos</text><text class="node-subtitle" x="373" y="352">gestión de operaciones</text><text class="node-detail" x="340" y="372">módulo independiente</text>
+            </g>
+            <g class="diagram-node node-payments" tabindex="0" role="button" aria-label="Módulo de pagos: procesa transacciones" data-title="Módulo de pagos" data-description="Representa una responsabilidad de pago aislada. Su implementación podría cambiar mientras se mantengan los contratos acordados con el resto del sistema.">
+              <rect class="node-box" x="585" y="306" width="210" height="79" rx="12"/><circle class="module-badge" cx="613" cy="334" r="14"/><text class="badge-letter" x="613" y="339" text-anchor="middle">$</text>
+              <text class="node-title" x="638" y="333">Pagos</text><text class="node-subtitle" x="638" y="352">transacciones</text><text class="node-detail" x="605" y="372">módulo independiente</text>
+            </g>
+            <g class="diagram-node node-storage" tabindex="0" role="button" aria-label="Persistencia: almacena datos según el diseño" data-title="Persistencia de datos" data-description="Representa el almacenamiento en este ejemplo. Los datos pueden organizarse de distintas maneras; no implica una base de datos compartida ni que todos los sistemas deban tener esta capa.">
+              <rect class="node-box" x="325" y="463" width="200" height="37" rx="11"/><path class="storage-symbol" d="M344 474c0-5 28-5 28 0v14c0 5-28 5-28 0zM344 474c0 5 28 5 28 0M344 481c0 5 28 5 28 0"/>
+              <text class="node-title" x="384" y="487">Persistencia</text>
+            </g>
+          </svg>
+          <div class="diagram-legend" aria-label="Leyenda del diagrama">
+            <span><i class="legend-dot legend-component"></i> Componentes</span><span><i class="legend-dot legend-contract"></i> Contratos</span><span><i class="legend-line"></i> Flujo de colaboración</span>
+          </div>
+        </div>
+        <aside class="diagram-detail" aria-live="polite" aria-atomic="true">
+          <div class="detail-icon" aria-hidden="true">⌘</div>
+          <p class="detail-kicker">EXPLORA EL DIAGRAMA</p>
+          <h3 id="diagram-detail-title">Límites claros,<br>colaboración explícita.</h3>
+          <p id="diagram-detail-copy">Selecciona con clic, Enter o espacio un componente para ver su responsabilidad dentro de este ejemplo.</p>
+          <button class="button button-reset" id="diagram-reset" type="button"><span aria-hidden="true">↺</span> Restablecer vista</button>
+        </aside>
+      </div>
+      <p class="diagram-caveat" data-reveal><span aria-hidden="true">ⓘ</span> Este diagrama es educativo: no representa la infraestructura de esta página. Las arquitecturas desacopladas adoptan distintas formas y no todos los sistemas necesitan los mismos componentes.</p>
+    </section>
+
+    <section class="section quiz-section" id="cuestionario" aria-labelledby="quiz-title">
+      <div class="quiz-heading" data-reveal>
+        <div><p class="eyebrow eyebrow-dark">03 / COMPRUEBA LO APRENDIDO</p><h2 id="quiz-title">Cinco preguntas.<br><span>Una idea más clara.</span></h2></div>
+        <p>Responde cada pregunta y revisa tu resultado al terminar. Tus respuestas se evalúan únicamente en este navegador.</p>
+      </div>
+      <form class="quiz-form" id="quiz-form" novalidate>
+        <fieldset class="question" data-question="0" data-reveal>
+          <legend><span class="question-number">01</span><span>¿Cuál es el principal objetivo de una arquitectura desacoplada?</span></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="question-0" value="a"><span class="option-letter">A</span><span>Aumentar las dependencias entre componentes.</span></label>
+            <label class="option"><input type="radio" name="question-0" value="b"><span class="option-letter">B</span><span>Reducir las dependencias directas entre componentes.</span></label>
+            <label class="option"><input type="radio" name="question-0" value="c"><span class="option-letter">C</span><span>Eliminar todos los módulos del sistema.</span></label>
+            <label class="option"><input type="radio" name="question-0" value="d"><span class="option-letter">D</span><span>Utilizar una sola tecnología para todo.</span></label>
+          </div>
+          <p class="question-feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question" data-question="1" data-reveal>
+          <legend><span class="question-number">02</span><span>¿Qué beneficio ofrece el bajo acoplamiento?</span></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="question-1" value="a"><span class="option-letter">A</span><span>Hace imposible modificar el sistema.</span></label>
+            <label class="option"><input type="radio" name="question-1" value="b"><span class="option-letter">B</span><span>Obliga a todos los componentes a compartir el mismo código.</span></label>
+            <label class="option"><input type="radio" name="question-1" value="c"><span class="option-letter">C</span><span>Facilita el mantenimiento y los cambios independientes.</span></label>
+            <label class="option"><input type="radio" name="question-1" value="d"><span class="option-letter">D</span><span>Elimina la necesidad de realizar pruebas.</span></label>
+          </div>
+          <p class="question-feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question" data-question="2" data-reveal>
+          <legend><span class="question-number">03</span><span>¿Cómo pueden comunicarse los componentes desacoplados?</span></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="question-2" value="a"><span class="option-letter">A</span><span>Mediante interfaces, contratos o mecanismos de comunicación definidos.</span></label>
+            <label class="option"><input type="radio" name="question-2" value="b"><span class="option-letter">B</span><span>Modificando directamente el código interno de todos los módulos.</span></label>
+            <label class="option"><input type="radio" name="question-2" value="c"><span class="option-letter">C</span><span>Evitando toda comunicación entre ellos.</span></label>
+            <label class="option"><input type="radio" name="question-2" value="d"><span class="option-letter">D</span><span>Compartiendo obligatoriamente todas sus variables internas.</span></label>
+          </div>
+          <p class="question-feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question" data-question="3" data-reveal>
+          <legend><span class="question-number">04</span><span>¿Qué beneficio ofrece asignar responsabilidades bien definidas a los componentes?</span></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="question-3" value="a"><span class="option-letter">A</span><span>Aumenta necesariamente el acoplamiento.</span></label>
+            <label class="option"><input type="radio" name="question-3" value="b"><span class="option-letter">B</span><span>Hace imposible probarlos.</span></label>
+            <label class="option"><input type="radio" name="question-3" value="c"><span class="option-letter">C</span><span>Obliga a que todos los componentes realicen las mismas funciones.</span></label>
+            <label class="option"><input type="radio" name="question-3" value="d"><span class="option-letter">D</span><span>Facilita su comprensión, mantenimiento y prueba.</span></label>
+          </div>
+          <p class="question-feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question" data-question="4" data-reveal>
+          <legend><span class="question-number">05</span><span>¿Cuál es un ejemplo de ventaja de una arquitectura desacoplada?</span></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="question-4" value="a"><span class="option-letter">A</span><span>Cualquier cambio obliga a modificar todo el sistema.</span></label>
+            <label class="option"><input type="radio" name="question-4" value="b"><span class="option-letter">B</span><span>Un módulo puede sustituirse con menor impacto si respeta el contrato establecido.</span></label>
+            <label class="option"><input type="radio" name="question-4" value="c"><span class="option-letter">C</span><span>Todos los módulos dependen de una implementación concreta.</span></label>
+            <label class="option"><input type="radio" name="question-4" value="d"><span class="option-letter">D</span><span>Ya no es necesario documentar las interfaces.</span></label>
+          </div>
+          <p class="question-feedback" aria-live="polite"></p>
+        </fieldset>
+        <div class="quiz-actions" data-reveal>
+          <p class="quiz-hint" id="quiz-hint" aria-live="polite">Selecciona una opción en cada pregunta para evaluar.</p>
+          <div class="quiz-buttons"><button class="button button-primary" type="submit">Evaluar respuestas <span aria-hidden="true">→</span></button><button class="button button-quiet" type="reset">Intentar de nuevo <span aria-hidden="true">↺</span></button></div>
+        </div>
+        <div class="quiz-result" id="quiz-result" role="status" aria-live="polite" hidden></div>
+      </form>
+    </section>
+
+    <section class="section video-section" id="video" aria-labelledby="video-title">
+      <div class="video-heading" data-reveal>
+        <div><p class="eyebrow eyebrow-dark">04 / PARA SEGUIR EXPLORANDO</p><h2 id="video-title">Aprende con <span>un video.</span></h2></div>
+        <p>Una pausa audiovisual para reconocer estos principios en situaciones reales de diseño de software.</p>
+      </div>
+      <div class="video-layout" data-reveal>
+        <div class="video-frame" id="video-frame">
+          <div class="video-placeholder" id="video-placeholder">
+            <div class="play-mark" aria-hidden="true">▶</div>
+            <p class="video-placeholder-title">Aún no hay un video configurado</p>
+            <p>Configura un ID de YouTube o una ruta de video local en <code>js/script.js</code>. La página no carga contenido externo automáticamente.</p>
+          </div>
+        </div>
+        <div class="video-notes">
+          <p class="video-note-kicker">MIENTRAS LO VES</p>
+          <h3>Ideas para identificar</h3>
+          <ul>
+            <li><span>01</span> Límites y responsabilidades entre componentes</li>
+            <li><span>02</span> Contratos que hacen posible la colaboración</li>
+            <li><span>03</span> Cambios que no se propagan por todo el sistema</li>
+            <li><span>04</span> Costos y decisiones detrás de cada abstracción</li>
+          </ul>
+          <p class="video-offline-note"><span aria-hidden="true">◉</span> El video es opcional y requiere conexión solo si se configura YouTube. El contenido y las actividades de esta página funcionan sin conexión.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand"><a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Arquitectura <strong>Desacoplada</strong></span></a><p>El buen diseño permite que el software evolucione y siga siendo mantenible.</p></div>
+      <div class="footer-nav"><p>EXPLORA</p><a href="#concepto">Concepto</a><a href="#arquitectura">Arquitectura</a><a href="#cuestionario">Cuestionario</a><a href="#video">Video</a></div>
+      <a class="back-to-top" href="#inicio" aria-label="Volver al inicio">↑<span>Volver arriba</span></a>
+    </div>
+    <div class="footer-bottom"><span>© <span id="current-year"></span> Arquitectura Desacoplada</span><span>Contenido educativo · Experiencia local</span></div>
+  </footer>
+  <a class="floating-top" href="#inicio" aria-label="Volver arriba" title="Volver arriba">↑</a>
+</body>
+</html>
